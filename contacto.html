@@ -5,8 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Practica 7</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body background="fondo.jpg">
+    <h1>Mapa de OpenStreetMap - Tuxtla Gutiérrez</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializar el mapa centrado en Tuxtla Gutiérrez, Chiapas
+        var map = L.map('map').setView([16.7528, -93.1169], 13);
+
+        // Agregar los tiles de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Agregar un marcador en Tuxtla Gutiérrez
+        L.marker([16.7528, -93.1169]).addTo(map)
+            .bindPopup('Tuxtla Gutiérrez, Chiapas, México')
+            .openPopup();
+    </script>
     <div id="encabezado">
         <div id="menu">
             <ul>
@@ -21,8 +46,10 @@
 
     <div class="areaPrincipal">
         <div id="datos">
-            <p>Visitanos y Disfruta del Mejor Sabor</p>
-            <p>Contamos con los Mejores Sabores</p>
+            <p><b>Dirreción:</b> 20sur y Carretera Villaflores</p>
+            <p><b>Correo Electronico:</b> aquinovazquezrobertoabisai@gmail.com</p>
+            <p><b>Numero de telefono:</b> 961 374 0435</p>
+            <p><b>Nombre del Dueño:</b> Robero Abisai Aquino Vázquez</p>
         </div>
     </div>
     <div class="piePagina"></div>
